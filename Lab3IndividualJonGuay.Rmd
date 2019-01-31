@@ -1,0 +1,35 @@
+---
+title: "Lab3 Jon Guay"
+author: "Jon Guay"
+date: "January 30, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+source("http://www.openintro.org/stat/data/cdc.R")
+cdc <- as_tibble(cdc)
+head(cdc)
+```
+
+```{r}
+ggplot(data = cdc) +
+  geom_count(mapping = aes(x = as.factor(genhlth), y =  as.factor(exerany), color = as.factor(gender))) +
+facet_grid(.~gender) +
+xlab("General Health") +
+ylab("Excercise this month(Y or N)") +
+  scale_color_discrete(name = 'gender', labels = c('male', 'female')) +
+  scale_size_area(max_size = 10)
+```
+
+
+
+***
+
+I made the graph in this way because of my choice of variables.  The two variables, excercise and general health, are both discrete; which gave me no choice but to use Geom_count as my graph type.  This is because it is the only possible method that can graph such variables.  To avoid overlapping of the genders and dots, I used facet grid to remove this issue, rather than a jitter or dodge.  Now my graph clearly shows the correlation between excercise and good health.
+
+***
+
+
+
