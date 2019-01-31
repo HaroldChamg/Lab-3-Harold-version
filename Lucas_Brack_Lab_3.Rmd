@@ -1,0 +1,30 @@
+---
+title: "Lab 3"
+author: "Lucas Brack"
+date: "January 29, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+```{r}
+#install.packages("tidyverse")
+library(tidyverse)
+source("http://www.openintro.org/stat/data/cdc.R")
+cdc <- as_tibble(cdc)
+summary(cdc)
+
+```
+
+
+```{r}
+ggplot(data = cdc, aes(x = smoke100, fill=as.factor(hlthplan)))+
+  geom_bar(bins = 2)+
+  labs(title ="Smokers Have Heath Coverage at a Lower Rate than Non-smokers", x = "Non-Smokers vs Smokers") +
+   theme_minimal()  +
+  scale_fill_discrete(name = "Health Coverage", labels = c("No", "Yes"))
+```
+This plot compares the health coverage of smokers against the coverage of non-smokers. I did this by creating a ggplot, and using geom_bar to make it a bar graph with 2 bins, one for smokers and one for non-smokers. I added colors for whether or not the person had health coverage or not. I added labels for that, changed the x label, and the title, and switched to the minimal theme. 
