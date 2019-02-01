@@ -1,0 +1,42 @@
+```{r}
+library(tidyverse)
+source("http://www.openintro.org/stat/data/cdc.R")
+cdc <- as_tibble(cdc)
+```
+
+Graph No.1/Harold
+```{r}
+ggplot(data =cdc)+
+  geom_count(mapping = aes(x= weight, y= genhlth))+
+  geom_smooth(SE= FALSE,mapping = aes(x = weight, y = genhlth))
+  ylab("Health Condition")
+  
+```
+
+This graph tells me that weight and a person's health condition is in fact related, as you can see above people who are in "Good"(including very good, and excellent) condistion never weight more the 400 pounds. Even comparing those "Goods", majority of people in excellent health condition weighted between 100-200, and the majority of "very good located between 100-250.
+
+
+```{r}
+ggplot(data =cdc)+
+  geom_jitter(mapping = aes(x=weight , y=wtdesire,color = gender,))+
+  geom_smooth((mapping = aes(x=weight , y=wtdesire,color = gender)))+
+  facet_wrap(~ gender, nrow = 2)
+```
+```{r}
+ggplot(data = cdc) + 
+  stat_summary(mapping = aes(x = gender, y = wtdesire),    fun.ymin = min,
+    fun.ymax = max,
+    fun.y = median
+ )
+```
+```{r}
+ggplot(data = cdc) + 
+  geom_bar(mapping = aes(x = wtdesire, fill = gender), position = "fill")
+```
+  
+  
+
+
+
+
+
