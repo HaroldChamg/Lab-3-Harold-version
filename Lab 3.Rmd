@@ -1,0 +1,35 @@
+---
+title: "Lab 3"
+output: html_document
+---
+##Max Ward
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+source("http://www.openintro.org/stat/data/cdc.R")
+cdc <- as_tibble(cdc)
+```
+
+```{r echo = TRUE, message = F, warning = F, eval = F}
+#Smoking ratio by gender
+ggplot(data = cdc) +
+  geom_bar(mapping = aes(x = smoke100, fill = gender))+
+  ggtitle('Smoking Males vs Female') +       
+  xlab('0 = No, 1 = Yes')   
+```
+***
+I chose these two variables becuase I thought it would be intersting to see what the spread was. I did the graph the way I did becuase I thought it was easy to see the difference between smokers in male and females. It is easy to read and to understand what the graph it showing.
+
+***
+#Group Question 
+What is the ideal body shape for males vs females? This would be good to know for companies to know how to target their adds at males and females. 
+
+#Recommendation 
+We recommemed that companies should target males more for gyms and ways to gain weight fast and to target females for dieting plans and getting into shape things and not getting bigger. 
+
+#What We all did
+Max - Wrote the questions and our recommendation 
+Harold - Made the team graphs 
+Jon - Helped with both making the graphs and the questions 
+Lucas - Brought all the graphs together and made them look nice 
+***
